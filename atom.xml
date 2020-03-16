@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.zuozuozuo.top</id>
     <title>幻樱杀缭乱</title>
-    <updated>2020-03-16T15:43:42.210Z</updated>
+    <updated>2020-03-16T15:58:25.053Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.zuozuozuo.top"/>
     <link rel="self" href="https://www.zuozuozuo.top/atom.xml"/>
@@ -11,11 +11,73 @@
     <icon>https://www.zuozuozuo.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 幻樱杀缭乱</rights>
     <entry>
-        <title type="html"><![CDATA[备份观看Netflix的Clash规则]]></title>
+        <title type="html"><![CDATA[V2Ray WS TLS1.3一键脚本]]></title>
+        <id>https://www.zuozuozuo.top/post/v2ray-ws-tls13-yi-jian-jiao-ben/</id>
+        <link href="https://www.zuozuozuo.top/post/v2ray-ws-tls13-yi-jian-jiao-ben/">
+        </link>
+        <updated>2020-03-16T12:48:44.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>
+<p><strong>WebSocket+TLS+Web</strong>（Caddy）</p>
+<p>从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出国方案了。</p>
+</li>
+<li>
+<p><strong>方案说明</strong></p>
+<ul>
+<li>VPS系统要求为Debian 9+/Ubuntu 16.04+。</li>
+<li>需要一个域名并解析到VPS的IP。</li>
+<li>建议搭配BBR加速。</li>
+<li>一键脚本会配置一个英文模版的网站，访问地址即为解析到VPS的域名。</li>
+</ul>
+</li>
+<li>
+<p><strong>开始吧</strong></p>
+<ul>
+<li>
+<p>安装最新内核并开启BBR</p>
+<p><code>wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</code></p>
+<p>按提示重启VPS。</p>
+</li>
+<li>
+<p>安装curl</p>
+<p><code>apt-get install curl</code></p>
+</li>
+<li>
+<p>安装V2Ray+WS+TLS</p>
+<p><code>curl -O https://raw.githubusercontent.com/atrandys/v2ray-ws-tls/master/v2ray_ws_tls1.3.sh &amp;&amp; chmod +x v2ray_ws_tls1.3.sh &amp;&amp; ./v2ray_ws_tls1.3.sh</code></p>
+<p>脚本执行过程中会提示需要输入域名，输入解析到本VPS的域名即可。安装完成后，可以看到配置参数，客户端配置时要用到相关参数。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>客户端配置</strong></p>
+<ul>
+<li>推荐使用如下客户端</li>
+</ul>
+<p>​       Windows：<a href="https://github.com/Fndroid/clash_for_windows_pkg">Clash for Windows</a></p>
+<p>​       Mac：<a href="https://github.com/yichengchen/clashX">ClashX</a></p>
+<p>​       Android：<a href="https://github.com/Kr328/ClashForAndroid">Clash for Android</a></p>
+<p>​       iOS：Shadowrocket、QuanrumltX等</p>
+<p>​       OpenWRT：<a href="https://github.com/vernesong/OpenClash">OpenClash</a></p>
+<ul>
+<li>将配置参数对应填写到客户端</li>
+<li>配置所需要的规则</li>
+</ul>
+</li>
+<li>
+<p><strong>引用说明</strong></p>
+<p>BBR一键脚本来自<a href="https://teddysun.com/489.html">秋水逸冰</a></p>
+<p>V2Ray一键脚本来自<a href="https://www.atrandys.com/2019/1880.html">Arandy's</a></p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[观看Netflix的Clash规则]]></title>
         <id>https://www.zuozuozuo.top/post/bei-fen-guan-kan-netflix-de-clash-gui-ze/</id>
         <link href="https://www.zuozuozuo.top/post/bei-fen-guan-kan-netflix-de-clash-gui-ze/">
         </link>
-        <updated>2020-03-16T14:42:05.000Z</updated>
+        <updated>2020-03-16T12:42:05.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>
 <p><strong>说明</strong></p>
@@ -85,74 +147,22 @@ Rule:
 <ul>
 <li><strong>补充一些关于Clash规则的链接</strong>
 <ul>
-<li><a href="https://github.com/lhie1/Rules">lhie1规则</a></li>
-<li><a href="https://github.com/Hackl0us/SS-Rule-Snippet">Hackl0us规则</a></li>
-<li><a href="https://raw.githubusercontent.com/ConnersHua/Profiles/master/Clash/Pro.yaml">神机规则</a></li>
-<li><a href="https://bianyuan.xyz/">Sabrina Rule Generator</a>SS/SSR/V2Ray订阅类型转换</li>
-<li><a href="https://github.com/SukkaW/ClashEditor">Clash Editor</a>一个Clash配置文件的编辑向导</li>
-</ul>
+<li>
+<p><a href="https://github.com/lhie1/Rules">lhie1规则</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Hackl0us/SS-Rule-Snippet">Hackl0us规则</a></p>
+</li>
+<li>
+<p><a href="https://raw.githubusercontent.com/ConnersHua/Profiles/master/Clash/Pro.yaml">神机规则</a></p>
+</li>
+<li>
+<p><a href="https://bianyuan.xyz/">Sabrina Rule Generator</a>    SS/SSR/V2Ray订阅类型转换</p>
+</li>
+<li>
+<p><a href="https://github.com/SukkaW/ClashEditor">Clash Editor</a>    一个Clash配置文件的编辑向导</p>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[V2Ray WS TLS1.3一键脚本]]></title>
-        <id>https://www.zuozuozuo.top/post/v2ray-ws-tls13-yi-jian-jiao-ben/</id>
-        <link href="https://www.zuozuozuo.top/post/v2ray-ws-tls13-yi-jian-jiao-ben/">
-        </link>
-        <updated>2020-03-16T12:48:44.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>
-<p><strong>WebSocket+TLS+Web</strong>（Caddy）</p>
-<p>从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出国方案了。</p>
-</li>
-<li>
-<p><strong>方案说明</strong></p>
-<ul>
-<li>VPS系统要求为Debian 9+/Ubuntu 16.04+。</li>
-<li>需要一个域名并解析到VPS的IP。</li>
-<li>建议搭配BBR加速。</li>
-<li>一键脚本会配置一个英文模版的网站，访问地址即为解析到VPS的域名。</li>
-</ul>
-</li>
-<li>
-<p><strong>开始吧</strong></p>
-<ul>
-<li>
-<p>安装最新内核并开启BBR</p>
-<p><code>wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</code></p>
-<p>按提示重启VPS。</p>
-</li>
-<li>
-<p>安装curl</p>
-<p><code>apt-get install curl</code></p>
-</li>
-<li>
-<p>安装V2Ray+WS+TLS</p>
-<p><code>curl -O https://raw.githubusercontent.com/atrandys/v2ray-ws-tls/master/v2ray_ws_tls1.3.sh &amp;&amp; chmod +x v2ray_ws_tls1.3.sh &amp;&amp; ./v2ray_ws_tls1.3.sh</code></p>
-<p>脚本执行过程中会提示需要输入域名，输入解析到本VPS的域名即可。安装完成后，可以看到配置参数，客户端配置时要用到相关参数。</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>客户端配置</strong></p>
-<ul>
-<li>推荐使用如下客户端</li>
-</ul>
-<p>​       Windows：<a href="https://github.com/Fndroid/clash_for_windows_pkg">Clash for Windows</a></p>
-<p>​       Mac：<a href="https://github.com/yichengchen/clashX">ClashX</a></p>
-<p>​       Android：<a href="https://github.com/Kr328/ClashForAndroid">Clash for Android</a></p>
-<p>​       iOS：Shadowrocket、QuanrumltX等</p>
-<p>​       OpenWRT：<a href="https://github.com/vernesong/OpenClash">OpenClash</a></p>
-<ul>
-<li>将配置参数对应填写到客户端</li>
-<li>配置所需要的规则</li>
-</ul>
-</li>
-<li>
-<p><strong>引用说明</strong></p>
-<p>BBR一键脚本来自<a href="https://teddysun.com/489.html">秋水逸冰</a></p>
-<p>V2Ray一键脚本来自<a href="https://www.atrandys.com/2019/1880.html">Arandy's</a></p>
 </li>
 </ul>
 ]]></content>
