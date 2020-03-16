@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>V2Ray WS TLS1.3一键脚本 | 幻樱杀缭乱</title>
+<title>备份观看Netflix的Clash规则 | 幻樱杀缭乱</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -20,14 +20,12 @@
 
     <meta name="description" content="
 
-WebSocket+TLS+Web（Caddy）
-从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出国方案了。
+说明
+该规则用于观看Netflix港区内容，仅代理Netflix流量。服务器为阿里云轻量应用服务器-HK，搭建了V2Ray（WebSocket+TLS+Web），搭建方法见V2Ray WS TLS1.3一键脚本。
 
 
-方案说明
-
-VPS系统要..." />
-    <meta name="keywords" content="V2Ray" />
+Clash规则（搜..." />
+    <meta name="keywords" content="Clash" />
   </head>
   <body>
     <div id="app" class="main">
@@ -102,62 +100,85 @@ VPS系统要..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">V2Ray WS TLS1.3一键脚本</h2>
+            <h2 class="post-title">备份观看Netflix的Clash规则</h2>
             <div class="post-date">2020-03-16</div>
             
             <div class="post-content" v-pre>
               <ul>
 <li>
-<p><strong>WebSocket+TLS+Web</strong>（Caddy）</p>
-<p>从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出国方案了。</p>
+<p><strong>说明</strong></p>
+<p>该规则用于观看Netflix港区内容，仅代理Netflix流量。服务器为阿里云轻量应用服务器-HK，搭建了V2Ray（WebSocket+TLS+Web），搭建方法见<a href="https://www.zuozuozuo.top/post/v2ray-ws-tls13-yi-jian-jiao-ben/">V2Ray WS TLS1.3一键脚本</a>。</p>
 </li>
 <li>
-<p><strong>方案说明</strong></p>
-<ul>
-<li>VPS系统要求为Debian 9+/Ubuntu 16.04+。</li>
-<li>需要一个域名并解析到VPS的IP。</li>
-<li>建议搭配BBR加速。</li>
-<li>一键脚本会配置一个英文模版的网站，访问地址即为解析到VPS的域名。</li>
-</ul>
-</li>
-<li>
-<p><strong>开始吧</strong></p>
-<ul>
-<li>
-<p>安装最新内核并开启BBR</p>
-<p><code>wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</code></p>
-<p>按提示重启VPS。</p>
-</li>
-<li>
-<p>安装curl</p>
-<p><code>apt-get install curl</code></p>
-</li>
-<li>
-<p>安装V2Ray+WS+TLS</p>
-<p><code>curl -O https://raw.githubusercontent.com/atrandys/v2ray-ws-tls/master/v2ray_ws_tls1.3.sh &amp;&amp; chmod +x v2ray_ws_tls1.3.sh &amp;&amp; ./v2ray_ws_tls1.3.sh</code></p>
-<p>脚本执行过程中会提示需要输入域名，输入解析到本VPS的域名即可。安装完成后，可以看到配置参数，客户端配置时要用到相关参数。</p>
+<p><strong>Clash规则</strong>（搜集于网络）</p>
 </li>
 </ul>
-</li>
-<li>
-<p><strong>客户端配置</strong></p>
+<pre><code class="language-yaml">port: 7890
+socks-port: 7891
+allow-lan: false
+Proxy:
+# vmess
+- name: &quot;Ali&quot;
+  type: vmess
+  server: ****
+  port: 443
+  uuid: ****
+  alterId: 64
+  cipher: auto
+  # udp: true
+  tls: true
+  # skip-cert-verify: true
+  network: ws
+  ws-path: ****
+  # ws-headers:
+  Host: ****
+Proxy Group:
+- name: NETFLIX
+  type: select
+  proxies:
+    - Ali
+    - DIRECT
+    
+Rule:
+  - DOMAIN-SUFFIX,netflix.com,NETFLIX
+  - DOMAIN-SUFFIX,netflix.net,NETFLIX
+  - DOMAIN-SUFFIX,nflxext.com,NETFLIX
+  - DOMAIN-SUFFIX,nflximg.com,NETFLIX
+  - DOMAIN-SUFFIX,nflximg.net,NETFLIX
+  - DOMAIN-SUFFIX,nflxso.net,NETFLIX
+  - DOMAIN-SUFFIX,nflxvideo.net,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest0.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest1.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest2.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest3.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest4.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest5.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest6.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest7.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest8.com,NETFLIX
+  - DOMAIN-SUFFIX,netflixdnstest9.com,NETFLIX
+  - IP-CIDR,23.246.0.0/18,NETFLIX,no-resolve
+  - IP-CIDR,37.77.184.0/21,NETFLIX,no-resolve
+  - IP-CIDR,45.57.0.0/17,NETFLIX,no-resolve
+  - IP-CIDR,64.120.128.0/17,NETFLIX,no-resolve
+  - IP-CIDR,66.197.128.0/17,NETFLIX,no-resolve
+  - IP-CIDR,108.175.32.0/20,NETFLIX,no-resolve
+  - IP-CIDR,192.173.64.0/18,NETFLIX,no-resolve
+  - IP-CIDR,198.38.96.0/19,NETFLIX,no-resolve
+  - IP-CIDR,198.45.48.0/20,NETFLIX,no-resolve
+
+  - GEOIP,CN,DIRECT
+  - MATCH,DIRECT
+</code></pre>
 <ul>
-<li>推荐使用如下客户端</li>
-</ul>
-<p>​       Windows：<a href="https://github.com/Fndroid/clash_for_windows_pkg">Clash for Windows</a></p>
-<p>​       Mac：<a href="https://github.com/yichengchen/clashX">ClashX</a></p>
-<p>​       Android：<a href="https://github.com/Kr328/ClashForAndroid">Clash for Android</a></p>
-<p>​       iOS：Shadowrocket、QuanrumltX等</p>
-<p>​       OpenWRT：<a href="https://github.com/vernesong/OpenClash">OpenClash</a></p>
+<li><strong>补充一些关于Clash规则的链接</strong>
 <ul>
-<li>将配置参数对应填写到客户端</li>
-<li>配置所需要的规则</li>
+<li><a href="https://github.com/lhie1/Rules">lhie1规则</a></li>
+<li><a href="https://github.com/Hackl0us/SS-Rule-Snippet">Hackl0us规则</a></li>
+<li><a href="https://raw.githubusercontent.com/ConnersHua/Profiles/master/Clash/Pro.yaml">神机规则</a></li>
+<li><a href="https://bianyuan.xyz/">Sabrina Rule Generator</a>SS/SSR/V2Ray订阅类型转换</li>
+<li><a href="https://github.com/SukkaW/ClashEditor">Clash Editor</a>一个Clash配置文件的编辑向导</li>
 </ul>
-</li>
-<li>
-<p><strong>引用说明</strong></p>
-<p>BBR一键脚本来自<a href="https://teddysun.com/489.html">秋水逸冰</a></p>
-<p>V2Ray一键脚本来自<a href="https://www.atrandys.com/2019/1880.html">Arandy's</a></p>
 </li>
 </ul>
 
@@ -165,8 +186,8 @@ VPS系统要..." />
             
               <div class="tag-container">
                 
-                  <a href="https://www.zuozuozuo.top/tag/OaTbi9eoc/" class="tag">
-                    V2Ray
+                  <a href="https://www.zuozuozuo.top/tag/oLVImJ5Sc/" class="tag">
+                    Clash
                   </a>
                 
               </div>
@@ -174,9 +195,9 @@ VPS系统要..." />
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://www.zuozuozuo.top/post/a-li-yun-ecs-chong-zhuang-chun-jing-xi-tong-yi-jian-jiao-ben/">
+                <a href="https://www.zuozuozuo.top/post/v2ray-ws-tls13-yi-jian-jiao-ben/">
                   <h3 class="post-title">
-                    阿里云ECS重装纯净系统 一键脚本
+                    V2Ray WS TLS1.3一键脚本
                   </h3>
                 </a>
               </div>
