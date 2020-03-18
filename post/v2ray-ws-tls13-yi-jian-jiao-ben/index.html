@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://www.zuozuozuo.top/favicon.ico?v=1584459810511">
+<link rel="shortcut icon" href="https://www.zuozuozuo.top/favicon.ico?v=1584539263489">
 <link rel="stylesheet" href="https://www.zuozuozuo.top/styles/main.css">
 
 
@@ -24,15 +24,11 @@
 
 
 
-    <meta name="description" content="
+    <meta name="description" content="V2Ray WS TLS1.3一键脚本
+
 
 WebSocket+TLS+Web（Caddy）
-从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出国方案了。
-
-
-方案说明
-
-VPS系统要..." />
+从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出..." />
     <meta name="keywords" content="V2Ray" />
   </head>
   <body>
@@ -42,7 +38,7 @@ VPS系统要..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://www.zuozuozuo.top">
-        <img src="https://www.zuozuozuo.top/images/avatar.png?v=1584459810511" class="site-logo">
+        <img src="https://www.zuozuozuo.top/images/avatar.png?v=1584539263489" class="site-logo">
         <h1 class="site-title">幻樱杀缭乱</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -112,7 +108,8 @@ VPS系统要..." />
             <div class="post-date">2020-03-16</div>
             
             <div class="post-content" v-pre>
-              <ul>
+              <h1 id="v2ray-ws-tls13一键脚本">V2Ray WS TLS1.3一键脚本</h1>
+<ul>
 <li>
 <p><strong>WebSocket+TLS+Web</strong>（Caddy）</p>
 <p>从外面看，该方案的流量完全属于通过443端口访问正常的HTTPS网站，TLS可以加密流量，使其看起来更像HTTPS。该组合方案算是目前比较稳定的出国方案了。</p>
@@ -130,17 +127,20 @@ VPS系统要..." />
 <p><strong>开始吧</strong></p>
 <ul>
 <li>
-<p>安装最新内核并开启BBR</p>
-<p><code>wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</code></p>
-<p>按提示重启VPS。</p>
+<p>更新内核并开启BBR</p>
+<pre><code>wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh
+</code></pre>
+<p>按提示重启VPS。（若内核较新则不会更新内核，会直接开启BBR，无需重启）</p>
 </li>
 <li>
-<p>安装curl</p>
-<p><code>apt-get install curl</code></p>
+<p>安装curl（若系统已安装curl则无需此步骤）</p>
+<pre><code>apt-get install curl
+</code></pre>
 </li>
 <li>
 <p>安装V2Ray+WS+TLS</p>
-<p><code>curl -O https://raw.githubusercontent.com/atrandys/v2ray-ws-tls/master/v2ray_ws_tls1.3.sh &amp;&amp; chmod +x v2ray_ws_tls1.3.sh &amp;&amp; ./v2ray_ws_tls1.3.sh</code></p>
+<pre><code>curl -O https://raw.githubusercontent.com/atrandys/v2ray-ws-tls/master/v2ray_ws_tls1.3.sh &amp;&amp; chmod +x v2ray_ws_tls1.3.sh &amp;&amp; ./v2ray_ws_tls1.3.sh
+</code></pre>
 <p>脚本执行过程中会提示需要输入域名，输入解析到本VPS的域名即可。安装完成后，可以看到配置参数，客户端配置时要用到相关参数。</p>
 </li>
 </ul>
