@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.zuozuozuo.top</id>
     <title>幻樱杀缭乱</title>
-    <updated>2020-03-29T09:01:53.590Z</updated>
+    <updated>2020-03-31T02:49:01.939Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.zuozuozuo.top"/>
     <link rel="self" href="https://www.zuozuozuo.top/atom.xml"/>
@@ -249,19 +249,19 @@ Rule:
 <ul>
 <li>
 <p>先更新一下</p>
-<pre><code>apt-get update
+<pre><code class="language-bash">apt-get update
 </code></pre>
 </li>
 </ul>
 <ul>
 <li>
 <p>安装所需软件</p>
-<pre><code>apt-get install -y xz-utils openssl gawk file
+<pre><code class="language-bash">apt-get install -y xz-utils openssl gawk file
 </code></pre>
 </li>
 <li>
 <p>一键重装Debian</p>
-<pre><code>bash &lt;(wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh') -d 9 -v 64 -a
+<pre><code class="language-bash">bash &lt;(wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh') -d 9 -v 64 -a
 </code></pre>
 <p>上述一键脚本中<code>-d 9 -v 64</code>表示64位Debian 9，可根据需求自行修改。</p>
 </li>
@@ -272,7 +272,7 @@ Rule:
 <li>
 <p><strong>修改root密码</strong></p>
 <p>喝杯咖啡等系统重装好后，登陆root账户：<font color=\\#FF><em>MoeClub.org</em></font> ，然后修改root密码：</p>
-<pre><code>passwd root
+<pre><code class="language-bash">passwd root
 </code></pre>
 </li>
 <li>
